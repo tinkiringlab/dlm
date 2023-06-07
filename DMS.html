@@ -1,0 +1,965 @@
+<html>
+<head>
+<title></title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+	/* Custom style */
+    .accordion-button::after {
+      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' d='M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z' clip-rule='evenodd'/%3e%3c/svg%3e");
+      transform: scale(.7) !important;
+    }
+    .accordion-button:not(.collapsed)::after {
+      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' d='M0 8a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1z' clip-rule='evenodd'/%3e%3c/svg%3e");
+    }
+
+
+
+.card-body {
+    
+    padding: 1rem 2rem;
+}
+	
+#mainC
+{
+padding-left:25px;
+}
+#secPi
+{
+padding: 10px;
+    background-color: aliceblue;
+}
+#secP
+{
+font-size: smaller;
+}
+#num
+{
+margin-left:100px;
+}
+
+.accordion-button:focus
+ {
+    z-index: 3;
+    border-color: none;
+    outline: 0;
+    box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #0c63e4;
+     background-color: inherit;
+     box-shadow: none;
+}
+</style>
+</head>
+
+<body>
+<h2 class="text-center">Disaster Loss Database</h2>
+<hr style="height:1px;border-width:0;color:gray;background-color:gray;">
+
+
+<div class="row">
+<div class="col-sm-9">
+<div class="row container" style="background-color: #ffff003b;margin-left: 26px;">
+						  <div class="col-sm-2">
+								<span id="secP"><b><h5>State</h5></b></span>
+						  </div>
+						  <div class="col-sm-2">
+								<span id="secP"><input type="number" style="width: 100px;" placeholder="Uttarakhand"></span>
+						  </div>
+						  
+						  <div class="col-sm-2">
+								<span id="secP"><b><h5>District</h5></b></span>
+						  </div>
+						  <div class="col-sm-2">
+								<span id="secP"><input type="number" style="width: 100px;" placeholder="Uttarkashi"></span>
+						  </div>
+						  
+						  <div class="col-sm-2">
+								<span id="secP"><b><h5>Disaster</h5></b></span>
+						  </div>
+						  <div class="col-sm-2">
+								<span id="secP"><input type="number" style="width: 100px;" placeholder="Flood"></span>
+						  </div>
+					</div> 
+</div>
+</div>
+
+
+
+<div class="row" id="mainC">
+<h4></h4>
+
+					   
+
+
+
+<div class="row" style="padding-left:10px;">
+
+<div class="col-sm-9">
+					<div class="panel panel-primary">
+						<div class="panel-heading"><b><h5>Target A : Mortality</b></h5></div>
+						  <div class="panel-body" style="margin-left:10px;">
+
+						<div class="row">
+						  <div class="col-sm-5">   
+								
+							<div class="row" style="padding: 10px;background-color: aliceblue;">
+							  <div class="col-sm-8">
+									<span id="secP">No. of Deaths</span>
+								  </div>
+							  <div class="col-sm-4">
+									<span id="secP"><input type="number" style="width: 90px;" placeholder="Nos"></span>
+								  </div>
+							</div>    
+										   
+						  </div>
+						 <div class="col-sm-1">
+						   <button onclick="document.getElementById('id01').style.display='block'" class="w3-button"><i class="fa fa-plus-square" style="font-size:24px;"></i></button>
+						  </div>
+						   </div>
+						   <div class="row" style="margin-top: 2px;">
+						  <div class="col-sm-5">   
+								
+							<div class="row" style="padding: 10px;background-color: aliceblue;">
+							  <div class="col-sm-8">
+									<span id="secP">No. of Missing</span>
+								  </div>
+							  <div class="col-sm-4">
+									<span id="secP"><input type="number" style="width: 90px;"placeholder="Nos"></span>
+								  </div>
+							</div>    
+										   
+						  </div>
+						  <div class="col-sm-1">
+						   <button onclick="document.getElementById('id01').style.display='block'" class="w3-button"><i class="fa fa-plus-square" style="font-size:24px;"></i></button>
+						  </div>
+						   </div>
+
+						</div>
+					</div>
+
+					<div class="panel panel-primary">
+						<div class="panel-heading"><b><h5>Target B : People Affected</b></h5></div>
+						  <div class="panel-body" style="margin-left:10px;">
+
+							
+							<div class="row">
+							<div class="col-sm-9">
+							<div class="row" style="width: inherit;">
+									  <div class="col-sm-5">
+											<span id="secP"><b>No. of Affected People</b></span>
+									  </div>
+									  <div class="col-sm-5">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="Nos"></span>
+									  </div>
+									  <div class="col-sm-2">
+										<i class="fa fa-plus-square" style="font-size:24px;" onclick="document.getElementById('id01').style.display='block'"></i>
+									  </div>
+								</div> 
+							</div>
+							<div class="col-sm-3">
+							<button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree" style="padding: 0 0 0 0;"></button>
+							</div>
+							</div>
+							
+							
+									   
+							
+							
+
+
+						<div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#myAccordion" style="padding: 10px 5px 5px 30px;">
+						
+						   <div class="row" style="margin-top: 2px;">
+						  <div class="col-sm-5">           
+							<div class="row" style="padding: 10px;background-color: aliceblue;">
+							  <div class="col-sm-8">
+									<span id="secP">Injured or Ill</span>
+								  </div>
+							  <div class="col-sm-4">
+									<span id="secP"><input type="number" style="width: 90px;" placeholder="Nos"></span>
+								  </div>
+							</div>
+							 </div>
+						 <div class="col-sm-1">
+						   <button onclick="document.getElementById('id01').style.display='block'" class="w3-button"><i class="fa fa-plus-square" style="font-size:24px;"></i></button>
+						 </div>
+						</div>
+
+						<div class="row" style="margin-top: 2px;">
+						  <div class="col-sm-5">           
+							<div class="row" style="padding: 10px;background-color: aliceblue;">
+							  <div class="col-sm-8">
+									<span id="secP">Damaged Dwellings</span>
+								  </div>
+							  <div class="col-sm-4">
+									<span id="secP"><input type="number" style="width: 90px;" placeholder="Nos"></span>
+								  </div>
+							</div>
+							 </div>
+						<div class="col-sm-1">
+						   <button onclick="document.getElementById('id01').style.display='block'" class="w3-button"><i class="fa fa-plus-square" style="font-size:24px;"></i></button>
+						</div>
+						</div>
+
+						<div class="row" style="margin-top: 2px;">
+						  <div class="col-sm-5">           
+							<div class="row" style="padding: 10px;background-color: aliceblue;">
+							  <div class="col-sm-8">
+									<span id="secP">Destroyed Dwellings</span>
+								  </div>
+							  <div class="col-sm-4">
+									<span id="secP"><input type="number" style="width: 90px;" placeholder="Nos"></span>
+								  </div>
+							</div>
+							 </div>
+						<div class="col-sm-1">
+						   <button onclick="document.getElementById('id01').style.display='block'" class="w3-button"><i class="fa fa-plus-square" style="font-size:24px;"></i></button>
+						</div>
+						   </div>
+
+						<div class="row" style="margin-top: 2px;">
+						  <div class="col-sm-5">           
+							<div class="row" style="padding: 10px;background-color: aliceblue;">
+							  <div class="col-sm-8">
+									<span id="secP">Livelihood Dwellings</span>
+								  </div>
+							  <div class="col-sm-4">
+									<span id="secP"><input type="number" style="width: 90px;" placeholder="Nos"></span>
+								  </div>
+							</div>
+							 </div>
+					<div class="col-sm-1">
+						   
+					<button onclick="document.getElementById('id01').style.display='block'" class="w3-button"><i class="fa fa-plus-square" style="font-size:24px;"></i></button>
+						  </div>
+						</div>
+
+
+					</div>
+						</div>
+				</div>
+
+
+
+		<div class="panel panel-primary">
+    			<div class="panel-heading"><b><h5>Target C : Economic Losses in relation to GDP(i.e. Agriculture )</b></h5></div>
+      				<div class="panel-body" style="margin-left:10px;">
+					
+					
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="headingOne">
+							<button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+							
+								<div class="row" style="width: inherit;">
+									  <div class="col-sm-2">
+											<span id="secP"><b>Economic Losses(T)</b></span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="INR"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP"><b>Damaged</b></span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="Hectares"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP"><b>Destroyed</b></span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="Hectares"></span>
+									  </div>
+								</div>    
+							
+							</button>									
+						</h2>
+						<div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#myAccordion">
+							<div class="card-body">
+								<div class="row">
+							  <div class="col-sm-12">   
+									
+								<div class="row" style="padding: 10px;background-color: aliceblue;">
+									  <div class="col-sm-2">
+											<span id="secP">Agriculture Crop Losses</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="INR"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Damaged</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="Hectares"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Destroyed</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="Hectares"></span>
+									  </div>
+								</div>    
+											   
+							  </div>
+
+						</div>
+						
+						<div class="row" style="margin-top: 2px;">
+							  <div class="col-sm-12">   
+									
+								<div class="row" style="padding: 10px;background-color: aliceblue;">
+									  <div class="col-sm-2">
+											<span id="secP">Agricultural Live Stock Loss</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="INR"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Livestock Affected</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="Numbers"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Livestock Lost</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="Numbers"></span>
+									  </div>
+								</div>    
+											   
+							  </div>
+
+						</div>
+						
+						<div class="row" style="margin-top: 2px;">
+							  <div class="col-sm-12">   
+									
+								<div class="row" style="padding: 10px;background-color: aliceblue;">
+									  <div class="col-sm-2">
+											<span id="secP">Agricultural Forestry Loss</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="INR"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Damaged</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="Hectares"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Destroyed</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="Hectares"></span>
+									  </div>
+								</div>    
+											   
+							  </div>
+
+						</div>
+						
+						<div class="row" style="margin-top: 2px;">
+							  <div class="col-sm-12">   
+									
+								<div class="row" style="padding: 10px;background-color: aliceblue;">
+									  <div class="col-sm-2">
+											<span id="secP">Agricultural Aquaculture</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="INR"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Damaged</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="Hectares"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Destroyed</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="Hectares"></span>
+									  </div>
+								</div>    
+											   
+							  </div>
+
+						</div>
+						
+						<div class="row" style="margin-top: 2px;">
+							  <div class="col-sm-12">   
+									
+								<div class="row" style="padding: 10px;background-color: aliceblue;">
+									  <div class="col-sm-2">
+											<span id="secP">Agricultural Fisheries</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="INR"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Vessels Damaged</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="Numbers"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Vessels Destroyed</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="Numbers"></span>
+									  </div>
+								</div>    
+											   
+							  </div>
+
+						</div>
+						
+						<div class="row" style="margin-top: 2px;">
+							  <div class="col-sm-12">   
+									
+								<div class="row" style="padding: 10px;background-color: aliceblue;">
+									  <div class="col-sm-2">
+											<span id="secP">Agricultural Stock Loss</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="INR"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Stock facilities damaged</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="Numbers"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Stock facilities destroyed</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="Numbers"></span>
+									  </div>
+								</div>    
+											   
+							  </div>
+
+						</div>
+						
+						<div class="row" style="margin-top: 2px;">
+							  <div class="col-sm-12">   
+									
+								<div class="row" style="padding: 10px;background-color: aliceblue;">
+									  <div class="col-sm-2">
+											<span id="secP">Agricultural Productive Assets Loss</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="INR"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Productive Assets damaged</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="Numbers"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Productive Assets destroyed</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="Numbers"></span>
+									  </div>
+								</div>    
+											   
+							  </div>
+
+						</div>
+						
+					   <div class="row" style="margin-top: 2px;">
+							  <div class="col-sm-12">   
+									
+								<div class="row" style="padding: 10px;background-color: aliceblue;">
+									  <div class="col-sm-2">
+											<span id="secP">Agricultural Productive Assets Loss</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="INR"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Productive Assets facility damaged</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="Numbers"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Productive Assets facility destroyed</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="Numbers"></span>
+									  </div>
+								</div>    
+											   
+							  </div>
+
+						</div>
+							</div>
+						</div>
+					</div>
+					
+       					
+       
+       				</div>
+    	</div>
+		
+		
+		
+		
+		
+		
+		
+		<div class="panel panel-primary">
+    			<div class="panel-heading"><b><h5>Target D : Damage to Critical Infrastrucure & Services</b></h5></div>
+      				<div class="panel-body" style="margin-left:10px;">
+					
+					
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="headingOne">
+							<button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+							
+									<div class="row" style="width: inherit;">
+									  <div class="col-sm-2">
+											<span id="secP"><b>Economic Losses(T)</b></span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="INR"></span>
+									  </div>
+									  
+								</div>    
+							
+							</button>									
+						</h2>
+						<div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#myAccordion">
+							<div class="card-body">
+								<div class="row">
+							  <div class="col-sm-12">   
+									
+								<div class="row" style="padding: 10px;background-color: aliceblue;">
+								<label><u>Housing Sector</u></label>
+									  <div class="col-sm-2">
+											<span id="secP">Housing Damaged</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="INR"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Houses Destroyed</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="INR"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Total Dwellings</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="Number"></span>
+									  </div>
+								</div>    
+											   
+							  </div>
+
+						</div>
+						
+						<div class="row" style="margin-top: 2px;">
+							  <div class="col-sm-12">   
+									
+								<div class="row" style="padding: 10px;background-color: aliceblue;">
+								<label><u>Health Sector</u></label>
+									  <div class="col-sm-2">
+											<span id="secP">Loss in Health Sector</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="INR"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Facility Damaged</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="Numbers"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Facility Destroyed</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="Numbers"></span>
+									  </div>
+								</div>    
+											   
+							  </div>
+
+						</div>
+						
+						<div class="row" style="margin-top: 2px;">
+							  <div class="col-sm-12">   
+									
+								<div class="row" style="padding: 10px;background-color: aliceblue;">
+								<label><u>Education Sector</u></label>
+									  <div class="col-sm-2">
+											<span id="secP">Loss in Education</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="INR"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Facility Damaged</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="Number"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Facility Destroyed</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="Number"></span>
+									  </div>
+								</div>    
+											   
+							  </div>
+
+						</div>
+						
+						<div class="row" style="margin-top: 2px;">
+							  <div class="col-sm-12">   
+									
+								<div class="row" style="padding: 10px;background-color: aliceblue;">
+								<label><u>Other Infrastructure</u></label>
+									  <div class="col-sm-2">
+											<span id="secP">Loss in other affected Infrastructure</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="INR"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Infrastructure Damaged</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="Number"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Infrastructure Destroyed</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="Number"></span>
+									  </div>
+								</div>    
+											   
+							  </div>
+
+						</div>
+						
+						<div class="row" style="margin-top: 2px;">
+							  <div class="col-sm-12">   
+									
+								<div class="row" style="padding: 10px;background-color: aliceblue;">
+								<label><u>Cultural Heritage</u></label>
+									  <div class="col-sm-2">
+											<span id="secP">Cost of Rehabilitation/Reconstruction of fixed asset</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="INR"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Cost of Rehabilitation/Restoration of movable asset</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="INR"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Loss from Destroyed movable asset</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="INR"></span>
+									  </div>
+								</div> 
+								
+
+								<div class="row" style="padding: 10px;background-color: aliceblue;">
+									  <div class="col-sm-2">
+											<span id="secP">Monuments/Ficed assets damaged</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="INR"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Mobile Cultural assets Damaged</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="Number"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Mobile Cultural assets Destroyed</span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP"><input type="number" style="width: 90px;" placeholder="Number"></span>
+									  </div>
+								</div> 
+											   
+							  </div>
+
+						</div>
+						
+						<div class="row" style="margin-top: 2px;">
+						
+							  <div class="col-sm-12">   
+									
+								<div class="row" style="padding: 10px;background-color: aliceblue;">
+								<label><u>Basic Services</u></label>
+									  <div class="col-sm-2">
+											<span id="secP">Health</span>
+									  </div>
+									  <div class="col-sm-1">
+											<span id="secP"><input type="number" style="width: 60px;"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Education</span>
+									  </div>
+									  <div class="col-sm-1">
+											<span id="secP"><input type="number" style="width: 60px;"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Transportation</span>
+									  </div>
+									  <div class="col-sm-1">
+											<span id="secP"><input type="number" style="width: 60px;"></span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP">Power & Energy</span>
+									  </div>
+									  <div class="col-sm-1">
+											<span id="secP"><input type="number" style="width: 60px;"></span>
+									  </div>
+								</div>
+
+								<div class="row" style="padding: 10px;background-color: aliceblue;">
+									  <div class="col-sm-2">
+											<span id="secP">Communication</span>
+									  </div>
+									  <div class="col-sm-1">
+											<span id="secP"><input type="number" style="width: 60px;"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Water Supply</span>
+									  </div>
+									  <div class="col-sm-1">
+											<span id="secP"><input type="number" style="width: 60px;"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Relief</span>
+									  </div>
+									  <div class="col-sm-1">
+											<span id="secP"><input type="number" style="width: 60px;"></span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP">Sewerage</span>
+									  </div>
+									  <div class="col-sm-1">
+											<span id="secP"><input type="number" style="width: 60px;"></span>
+									  </div>
+								</div>
+
+								<div class="row" style="padding: 10px;background-color: aliceblue;">								
+									  <div class="col-sm-2">
+											<span id="secP">Agriculture Food</span>
+									  </div>
+									  <div class="col-sm-1">
+											<span id="secP"><input type="number" style="width: 60px;"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Industrial Service</span>
+									  </div>
+									  <div class="col-sm-1">
+											<span id="secP"><input type="number" style="width: 60px;"></span>
+									  </div>
+									  
+									  <div class="col-sm-2">
+											<span id="secP">Public Admin Service</span>
+									  </div>
+									  <div class="col-sm-1">
+											<span id="secP"><input type="number" style="width: 60px;"></span>
+									  </div>
+									  <div class="col-sm-2">
+											<span id="secP">Solid Waste Service</span>
+									  </div>
+									  <div class="col-sm-1">
+											<span id="secP"><input type="number" style="width: 60px;"></span>
+									  </div>
+								</div>								
+											   
+							  </div>
+
+						</div>
+						
+
+							</div>
+						</div>
+					</div>
+					
+       					
+       
+       				</div>
+    	</div>
+		
+		</div>
+		
+		<div class="col-sm-3">
+<img src="map-img.png" class="img-fluid">
+</div>
+	</div>	
+		
+		
+	    
+		
+
+</div>
+
+        
+
+
+	<div id="id01" class="w3-modal">
+    	   <div class="w3-modal-content">
+              <div class="w3-container">
+        	<span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright" style="font-size: larger;z-index: 9999;">&times;</span>
+        	
+
+
+    <div class="row" style="background-color: aliceblue;padding-top: 10px;">
+
+   	<div class="col-sm-3">
+		<h5>By Sex</h5>
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray;width: 100%;">
+	  	<div class="row">
+	    	   <div class="col-sm-6">
+	      		<p style="font-size: smaller;">Female</p>
+	           </div>
+	           <div class="col-sm-6">
+	      		<input type="number" style="width: 90px;" placeholder="Number"></p>
+	           </div>
+	 	</div>
+
+	 	<div class="row">
+	   	  <div class="col-sm-6">
+	     		<p style="font-size: smaller;">Male</p>
+	   	  </div>
+	   	  <div class="col-sm-6">
+	     		<input type="number" style="width: 90px;" placeholder="Number"></p>
+	   	  </div>
+	 	</div>
+  	</div>
+
+	
+
+  	<div class="col-sm-4">
+      		<h5>By Age</h5>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray;width: 140px;width: 100%;">
+		<div class="row">
+	  	   <div class="col-sm-6">
+	   		<p style="font-size: smaller;">Children(0-14)</p>
+	  	   </div>
+	  	   <div class="col-sm-6">
+	   		<input type="number" style="width: 90px;" placeholder="Number"></p>
+	  	   </div>
+	        </div>
+
+	<div class="row">
+	  <div class="col-sm-6">
+	   <p style="font-size: smaller;">Adult(15-64)</p>
+	  </div>
+	  <div class="col-sm-6">
+	   <input type="number" style="width: 90px;" placeholder="Number"></p>
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-sm-6">
+	   <p style="font-size: smaller;">Elder(>65+)</p>
+	  </div>
+	  <div class="col-sm-6">
+	   <input type="number" style="width: 90px;" placeholder="Number"></p>
+	  </div>
+	</div>
+  </div>
+
+    <div class="col-sm-5">
+	<h5>Other Disaggregation</h5>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray;width: 140px;width: 100%;">
+	  <div class="row">
+	    <div class="col-sm-6">
+	      <p style="font-size: smaller;">With Disabilities</p>
+	    </div>
+	    <div class="col-sm-6">
+	      <input type="number" style="width: 90px;" placeholder="Number"></p>
+	    </div>
+	  </div>
+
+	<div class="row">
+	  <div class="col-sm-6">
+	   <p style="font-size: smaller;">Below Poverty Line</p>
+	  </div>
+	  <div class="col-sm-6">
+	   <input type="number" style="width: 90px;" placeholder="Number"></p>
+	  </div>
+	</div>
+   </div>
+</div>
+
+
+
+
+      	      </div>
+          </div>
+        </div>
+
+
+</div>
+</body>
+</html>
